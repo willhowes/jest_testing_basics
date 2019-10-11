@@ -1,5 +1,34 @@
 const functions = require("./functions");
 
+// SETUP AND TEARDOWN EXAMPLES
+
+// before and after each test:
+// beforeEach(() => initDatabase());
+// afterEach(() => closeDatabase());
+
+// before and after all of the tests
+// beforeAll(() => initDatabase());
+// afterAll(() => closeDatabase());
+
+// const initDatabase = () => console.log("Database Initialized...");
+// const closeDatabase = () => console.log("Database Closed...");
+
+// Describe block example:
+const nameCheck = () => console.log("Checking name....");
+
+describe("Checking Names", () => {
+  beforeEach(() => nameCheck());
+  test("User is Jeff", () => {
+    const user = "Jeff";
+    expect(user).toBe("Jeff");
+  });
+
+  test("User is Karen", () => {
+    const user = "Karen";
+    expect(user).toBe("Karen");
+  });
+});
+
 // toBe - is for primative types (like integers. will not work on objects. Use toEqual instead for objects)
 test("Adds 2 + 2 to equal 4", () => {
   expect(functions.add(2, 2)).toBe(4);

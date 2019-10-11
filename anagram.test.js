@@ -24,5 +24,3 @@ test('"cinema" is an anagram of "iceman"', () => {
 test('"hello" is NOT an anagram of "Aloha"', () => {
   expect(isAnagram("hello", "aloha")).toEqual(false);
 });
-
-console.log(isAnagram("yes", "no"));
