@@ -50,10 +50,20 @@ test("Admin should be in username", () => {
   expect(usernames).toContain("admin");
 });
 
-// Working with async data
-test('User fetched names should be "Leanne Graham"', () => {
+// Working with async data - the assertions and return v important
+// with those the the test will pass regardless of the expectation
+
+// Promise
+// test('User fetched names should be "Leanne Graham"', () => {
+//   expect.assertions(1);
+//   return functions.fetchUser().then(data => {
+//     expect(data.name).toEqual("Leanne Graham");
+//   });
+// });
+
+// Async Await
+test('User fetched names should be "Leanne Graham"', async () => {
   expect.assertions(1);
-  return functions.fetchUser().then(data => {
-    expect(data.name).toEqual("Leanne Graham");
-  });
+  const data = await functions.fetchUser();
+  expect(data.name).toEqual("Leanne Graham");
 });
