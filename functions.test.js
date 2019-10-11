@@ -20,9 +20,40 @@ test("Should be falsey", () => {
   expect(functions.checkValue(null)).toBeFalsy();
 });
 
+// toEqual
 test("User should be Will howes object", () => {
   expect(functions.createUser()).toEqual({
     firstName: "Will",
     lastName: "Howes"
+  });
+});
+
+// Less than and greater than
+test("Should be under 1600", () => {
+  const load1 = 800;
+  const load2 = 700;
+  const total = load1 + load2;
+  expect(total).toBeLessThan(1600);
+  expect(total).toBeLessThanOrEqual(1600);
+  expect(total).toBeGreaterThan(1000);
+  expect(total).toBeGreaterThanOrEqual(1500);
+});
+
+// Regex
+test("There is no I in team", () => {
+  expect("team").not.toMatch(/I/i);
+});
+
+// Array
+test("Admin should be in username", () => {
+  usernames = ["john", "karen", "admin"];
+  expect(usernames).toContain("admin");
+});
+
+// Working with async data
+test('User fetched names should be "Leanne Graham"', () => {
+  expect.assertions(1);
+  return functions.fetchUser().then(data => {
+    expect(data.name).toEqual("Leanne Graham");
   });
 });
